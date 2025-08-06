@@ -1,0 +1,8 @@
+"use strict";
+let isGreeting = false;
+
+if (isGreeting) {
+    console.log("Xin chào");
+} else {
+    console.log("Tạm biệt");
+}
