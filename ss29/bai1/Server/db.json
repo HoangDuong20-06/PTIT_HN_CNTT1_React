@@ -1,0 +1,44 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "product_name": "Laptop Asus",
+      "image": "https://example.com/laptop.jpg",
+      "price": 1500,
+      "quantity": 10,
+      "created_at": "2025-09-15T08:00:00Z"
+    },
+    {
+      "id": 2,
+      "product_name": "Điện thoại iPhone",
+      "image": "https://example.com/iphone.jpg",
+      "price": 1200,
+      "quantity": 5,
+      "created_at": "2025-09-14T12:00:00Z"
+    },
+    {
+      "id": 3,
+      "product_name": "Tai nghe Sony",
+      "image": "https://example.com/sony.jpg",
+      "price": 200,
+      "quantity": 20,
+      "created_at": "2025-09-10T09:30:00Z"
+    },
+    {
+      "id": 4,
+      "product_name": "Chuột Logitech",
+      "image": "https://example.com/logitech.jpg",
+      "price": 50,
+      "quantity": 50,
+      "created_at": "2025-09-12T15:00:00Z"
+    },
+    {
+      "id": 5,
+      "product_name": "Bàn phím cơ Keychron",
+      "image": "https://example.com/keychron.jpg",
+      "price": 100,
+      "quantity": 15,
+      "created_at": "2025-09-11T10:15:00Z"
+    }
+  ]
+}
