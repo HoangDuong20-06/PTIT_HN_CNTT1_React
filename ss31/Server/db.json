@@ -1,0 +1,35 @@
+{
+  "article": [
+    {
+      "id": "1",
+      "title": "State trong ReactJS",
+      "image": {
+        "url": "https://images.viblo.asia/d0325af4-85c5-4e0d-a32d-2aeea0171f3a.png",
+        "alt": "State trong ReactJS"
+      },
+      "dateOfWriting": "04/03/2025",
+      "status": true
+    },
+    {
+      "id": "2",
+      "title": "Tổng quan về ReactJS",
+      "image": {
+        "url": "https://s3-sgn09.fptcloud.com/codelearnstorage/Upload/Blog/react-js-co-ban-phan-1-63738082145.3856.jpg",
+        "alt": "Tổng quan về ReactJS"
+      },
+      "dateOfWriting": "03/04/2025",
+      "status": true
+    },
+    {
+      "id": "218c",
+      "title": "code",
+      "content": "test",
+      "dateOfWriting": "2025-09-17",
+      "status": false,
+      "image": {
+        "url": "src",
+        "alt": "code"
+      }
+    }
+  ]
+}
