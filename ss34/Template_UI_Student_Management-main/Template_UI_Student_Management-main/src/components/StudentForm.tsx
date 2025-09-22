@@ -33,6 +33,9 @@ const StudentForm: React.FC<StudentFormProps> = ({
     hometown: "",
     address: "",
   });
+
+  const [errors, setErrors] = React.useState<Record<string, boolean>>({});
+
   React.useEffect(() => {
     if (mode === "add") {
       setForm({
@@ -44,22 +47,37 @@ const StudentForm: React.FC<StudentFormProps> = ({
         hometown: "",
         address: "",
       });
+      setErrors({});
     } else if (student) {
       setForm(student);
+      setErrors({});
     }
   }, [student, mode]);
 
   const handleChange = (e: FormChangeEvent) => {
     const { name, value } = e.target;
-    if (mode === "view") return; 
+    if (mode === "view") return;
     setForm((prev) => ({
       ...prev,
       [name]: name === "age" ? Number(value) : value,
     }));
+    setErrors((prev) => ({ ...prev, [name]: false }));
   };
 
   const handleSubmit = () => {
-    if (!form.id || !form.name) return;
+    const newErrors: Record<string, boolean> = {};
+    if (!form.id) newErrors.id = true;
+    if (!form.name) newErrors.name = true;
+    if (!form.age) newErrors.age = true;
+    if (!form.birthday) newErrors.birthday = true;
+    if (!form.hometown) newErrors.hometown = true;
+    if (!form.address) newErrors.address = true;
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     onSubmit(form);
     if (mode === "add") {
       setForm({
@@ -71,6 +89,7 @@ const StudentForm: React.FC<StudentFormProps> = ({
         hometown: "",
         address: "",
       });
+      setErrors({});
     }
   };
 
@@ -91,6 +110,11 @@ const StudentForm: React.FC<StudentFormProps> = ({
           onChange={handleChange}
           fullWidth
           disabled={mode !== "add"}
+          error={!!errors.id}
+          placeholder={errors.id ? "Mã sinh viên bắt buộc" : ""}
+          InputProps={{
+            style: errors.id ? { color: "red" } : {},
+          }}
         />
         <TextField
           label="Tên sinh viên"
@@ -99,6 +123,11 @@ const StudentForm: React.FC<StudentFormProps> = ({
           onChange={handleChange}
           fullWidth
           disabled={mode === "view"}
+          error={!!errors.name}
+          placeholder={errors.name ? "Tên sinh viên bắt buộc" : ""}
+          InputProps={{
+            style: errors.name ? { color: "red" } : {},
+          }}
         />
         <TextField
           label="Tuổi"
@@ -108,6 +137,11 @@ const StudentForm: React.FC<StudentFormProps> = ({
           onChange={handleChange}
           fullWidth
           disabled={mode === "view"}
+          error={!!errors.age}
+          placeholder={errors.age ? "Tuổi bắt buộc" : ""}
+          InputProps={{
+            style: errors.age ? { color: "red" } : {},
+          }}
         />
         <Select
           name="gender"
@@ -128,6 +162,11 @@ const StudentForm: React.FC<StudentFormProps> = ({
           fullWidth
           InputLabelProps={{ shrink: true }}
           disabled={mode === "view"}
+          error={!!errors.birthday}
+          placeholder={errors.birthday ? "Ngày sinh bắt buộc" : ""}
+          InputProps={{
+            style: errors.birthday ? { color: "red" } : {},
+          }}
         />
         <TextField
           label="Nơi sinh"
@@ -136,6 +175,11 @@ const StudentForm: React.FC<StudentFormProps> = ({
           onChange={handleChange}
           fullWidth
           disabled={mode === "view"}
+          error={!!errors.hometown}
+          placeholder={errors.hometown ? "Nơi sinh bắt buộc" : ""}
+          InputProps={{
+            style: errors.hometown ? { color: "red" } : {},
+          }}
         />
         <TextField
           label="Địa chỉ"
@@ -144,6 +188,11 @@ const StudentForm: React.FC<StudentFormProps> = ({
           onChange={handleChange}
           fullWidth
           disabled={mode === "view"}
+          error={!!errors.address}
+          placeholder={errors.address ? "Địa chỉ bắt buộc" : ""}
+          InputProps={{
+            style: errors.address ? { color: "red" } : {},
+          }}
         />
         {mode !== "view" && (
           <Button variant="contained" color="primary" onClick={handleSubmit}>
