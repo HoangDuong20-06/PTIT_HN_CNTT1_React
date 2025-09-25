@@ -1,0 +1,22 @@
+{
+  "studentList": [
+    {
+      "id": "1",
+      "name": "Hoàng Dương",
+      "age": "19",
+      "grade": "CNTT1"
+    },
+    {
+      "id": "2",
+      "name": "Trọng An",
+      "age": "18",
+      "grade": "CNTT2"
+    },
+    {
+      "id": "3",
+      "name": "Mai Văn Huy",
+      "age": 19,
+      "grade": "CNTT3"
+    }
+  ]
+}
